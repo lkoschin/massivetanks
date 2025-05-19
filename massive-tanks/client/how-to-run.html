@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Run - Massive Tanks: Armored Command</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+        }
+        
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        
+        .note {
+            background-color: #e3f2fd;
+            border-left: 4px solid #3498db;
+            padding: 10px 15px;
+            margin: 20px 0;
+        }
+        
+        .warning {
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 10px 15px;
+            margin: 20px 0;
+        }
+        
+        ol, ul {
+            padding-left: 25px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        
+        .back-link:hover {
+            background-color: #2980b9;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>How to Run Massive Tanks: Armored Command</h1>
+    
+    <p>This document provides instructions for running the Massive Tanks: Armored Command prototype.</p>
+    
+    <h2>Prerequisites</h2>
+    
+    <p>To run the application, you need:</p>
+    
+    <ul>
+        <li>A modern web browser (Chrome, Firefox, Edge, or Safari)</li>
+        <li>Internet connection (for loading external resources like Font Awesome)</li>
+    </ul>
+    
+    <h2>Running the Application</h2>
+    
+    <p>There are several ways to run the application:</p>
+    
+    <h3>Method 1: Open the HTML File Directly</h3>
+    
+    <ol>
+        <li>Navigate to the <code>massive-tanks/client</code> directory</li>
+        <li>Double-click on <code>index.html</code> to open it in your default web browser</li>
+    </ol>
+    
+    <div class="note">
+        <p><strong>Note:</strong> Opening the file directly may have some limitations due to browser security restrictions. If you encounter issues with loading resources or API calls, try one of the other methods below.</p>
+    </div>
+    
+    <h3>Method 2: Using a Local Web Server</h3>
+    
+    <p>For the best experience, we recommend running the application using a local web server:</p>
+    
+    <h4>Using Python's built-in HTTP server:</h4>
+    
+    <ol>
+        <li>Open a terminal or command prompt</li>
+        <li>Navigate to the <code>massive-tanks/client</code> directory</li>
+        <li>Run one of the following commands based on your Python version:
+            <pre>
+# For Python 3
+python -m http.server 8080
+
+# For Python 2
+python -m SimpleHTTPServer 8080</pre>
+        </li>
+        <li>Open your web browser and navigate to <code>http://localhost:8080</code></li>
+    </ol>
+    
+    <h4>Using Node.js and http-server:</h4>
+    
+    <ol>
+        <li>If you don't have http-server installed, install it globally:
+            <pre>npm install -g http-server</pre>
+        </li>
+        <li>Navigate to the <code>massive-tanks/client</code> directory</li>
+        <li>Run:
+            <pre>http-server -p 8080</pre>
+        </li>
+        <li>Open your web browser and navigate to <code>http://localhost:8080</code></li>
+    </ol>
+    
+    <h4>Using Visual Studio Code Live Server extension:</h4>
+    
+    <ol>
+        <li>Open the project in Visual Studio Code</li>
+        <li>Install the "Live Server" extension if you don't have it already</li>
+        <li>Right-click on <code>index.html</code> and select "Open with Live Server"</li>
+        <li>The application will open in your default browser</li>
+    </ol>
+    
+    <h2>Using the Application</h2>
+    
+    <p>Once the application is running:</p>
+    
+    <ol>
+        <li>Enter any username on the login screen (password is not validated in the prototype)</li>
+        <li>Click "Login" to enter the application</li>
+        <li>Navigate between different views using the navigation bar</li>
+        <li>In the Base view, select a building type and click on the grid to place it</li>
+        <li>In the Garage view, click "Import Tanks" to simulate importing tanks from World of Tanks</li>
+        <li>In the Missions view, click "New Mission" to create a strategic mission</li>
+    </ol>
+    
+    <div class="note">
+        <p><strong>Note:</strong> This is a prototype version with simulated functionality. No actual connection to the Wargaming API is made.</p>
+    </div>
+    
+    <h2>Troubleshooting</h2>
+    
+    <h3>Console Errors</h3>
+    
+    <p>If you encounter issues, open your browser's developer console (F12 or Ctrl+Shift+I in most browsers) to check for error messages.</p>
+    
+    <h3>Common Issues</h3>
+    
+    <ul>
+        <li><strong>CORS errors:</strong> If you see Cross-Origin Resource Sharing (CORS) errors in the console, you need to use a local web server as described in Method 2.</li>
+        <li><strong>Missing resources:</strong> Ensure you have an internet connection for loading external resources like Font Awesome.</li>
+        <li><strong>JavaScript disabled:</strong> Make sure JavaScript is enabled in your browser.</li>
+    </ul>
+    
+    <h3>Resetting Data</h3>
+    
+    <p>If you want to reset all application data:</p>
+    
+    <ol>
+        <li>Open your browser's developer console (F12 or Ctrl+Shift+I)</li>
+        <li>Type <code>App.resetAllData()</code> and press Enter</li>
+        <li>Confirm the reset when prompted</li>
+    </ol>
+    
+    <h2>Additional Resources</h2>
+    
+    <ul>
+        <li>Check the <code>README.md</code> file in the project root for an overview of the project</li>
+        <li>See <code>docs/wargaming-api-guide.md</code> for details on the Wargaming API integration</li>
+        <li>See <code>docs/twitch-integration-guide.md</code> for details on the Twitch integration</li>
+    </ul>
+    
+    <a href="index.html" class="back-link">Back to Application</a>
+</body>
+</html>
