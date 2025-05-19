@@ -6,206 +6,216 @@
     <title>How to Run - Massive Tanks: Armored Command</title>
     <style>
         body {
-            font-family: 'Roboto', Arial, sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            color: #333;
         }
-        
         h1 {
             color: #2c3e50;
             border-bottom: 2px solid #3498db;
             padding-bottom: 10px;
         }
-        
         h2 {
             color: #2c3e50;
             margin-top: 30px;
         }
-        
         code {
             background-color: #f5f5f5;
             padding: 2px 5px;
             border-radius: 3px;
-            font-family: 'Courier New', monospace;
+            font-family: monospace;
         }
-        
         pre {
             background-color: #f5f5f5;
             padding: 15px;
             border-radius: 5px;
             overflow-x: auto;
+            font-family: monospace;
         }
-        
         .note {
             background-color: #e3f2fd;
-            border-left: 4px solid #3498db;
-            padding: 10px 15px;
-            margin: 20px 0;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 15px 0;
         }
-        
         .warning {
-            background-color: #fff3e0;
-            border-left: 4px solid #ff9800;
-            padding: 10px 15px;
-            margin: 20px 0;
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
         }
-        
-        ol, ul {
-            padding-left: 25px;
-        }
-        
-        li {
+        ol li, ul li {
             margin-bottom: 10px;
         }
-        
         a {
             color: #3498db;
             text-decoration: none;
         }
-        
         a:hover {
             text-decoration: underline;
         }
-        
-        .back-link {
+        .btn {
             display: inline-block;
-            margin-top: 30px;
-            padding: 10px 15px;
             background-color: #3498db;
             color: white;
+            padding: 10px 15px;
             border-radius: 5px;
             text-decoration: none;
+            margin-top: 20px;
         }
-        
-        .back-link:hover {
+        .btn:hover {
             background-color: #2980b9;
             text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <h1>How to Run Massive Tanks: Armored Command</h1>
+    <h1>Running Massive Tanks: Armored Command</h1>
     
-    <p>This document provides instructions for running the Massive Tanks: Armored Command prototype.</p>
-    
-    <h2>Prerequisites</h2>
-    
-    <p>To run the application, you need:</p>
-    
-    <ul>
-        <li>A modern web browser (Chrome, Firefox, Edge, or Safari)</li>
-        <li>Internet connection (for loading external resources like Font Awesome)</li>
-    </ul>
-    
-    <h2>Running the Application</h2>
-    
-    <p>There are several ways to run the application:</p>
-    
-    <h3>Method 1: Open the HTML File Directly</h3>
-    
-    <ol>
-        <li>Navigate to the <code>massive-tanks/client</code> directory</li>
-        <li>Double-click on <code>index.html</code> to open it in your default web browser</li>
-    </ol>
+    <p>This guide will help you run the Massive Tanks: Armored Command prototype on your local machine.</p>
     
     <div class="note">
-        <p><strong>Note:</strong> Opening the file directly may have some limitations due to browser security restrictions. If you encounter issues with loading resources or API calls, try one of the other methods below.</p>
+        <strong>Note:</strong> This is a prototype version designed to demonstrate the concept and UI. The full version will include complete integration with the Wargaming API and more features.
     </div>
     
-    <h3>Method 2: Using a Local Web Server</h3>
+    <h2>Method 1: Using a local web server</h2>
     
-    <p>For the best experience, we recommend running the application using a local web server:</p>
+    <p>The recommended way to run Massive Tanks is to use a local web server. This ensures all features work correctly.</p>
     
-    <h4>Using Python's built-in HTTP server:</h4>
+    <h3>Option A: Using Node.js and http-server</h3>
     
     <ol>
-        <li>Open a terminal or command prompt</li>
-        <li>Navigate to the <code>massive-tanks/client</code> directory</li>
-        <li>Run one of the following commands based on your Python version:
-            <pre>
-# For Python 3
-python -m http.server 8080
-
-# For Python 2
-python -m SimpleHTTPServer 8080</pre>
+        <li>
+            <strong>Install Node.js</strong> if you don't have it already.
+            <ul>
+                <li>Download from <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a></li>
+                <li>Follow the installation instructions for your operating system</li>
+            </ul>
         </li>
-        <li>Open your web browser and navigate to <code>http://localhost:8080</code></li>
-    </ol>
-    
-    <h4>Using Node.js and http-server:</h4>
-    
-    <ol>
-        <li>If you don't have http-server installed, install it globally:
+        <li>
+            <strong>Install http-server</strong> globally:
             <pre>npm install -g http-server</pre>
         </li>
-        <li>Navigate to the <code>massive-tanks/client</code> directory</li>
-        <li>Run:
-            <pre>http-server -p 8080</pre>
+        <li>
+            <strong>Navigate to the project directory</strong> in your terminal or command prompt:
+            <pre>cd path/to/massive-tanks/client</pre>
         </li>
-        <li>Open your web browser and navigate to <code>http://localhost:8080</code></li>
+        <li>
+            <strong>Start the server</strong>:
+            <pre>http-server</pre>
+        </li>
+        <li>
+            <strong>Open your browser</strong> and navigate to:
+            <pre>http://localhost:8080</pre>
+        </li>
     </ol>
     
-    <h4>Using Visual Studio Code Live Server extension:</h4>
+    <h3>Option B: Using Python's built-in HTTP server</h3>
     
     <ol>
-        <li>Open the project in Visual Studio Code</li>
-        <li>Install the "Live Server" extension if you don't have it already</li>
-        <li>Right-click on <code>index.html</code> and select "Open with Live Server"</li>
-        <li>The application will open in your default browser</li>
+        <li>
+            <strong>Make sure Python is installed</strong> on your system.
+            <ul>
+                <li>Most macOS and Linux systems have Python pre-installed</li>
+                <li>Windows users can download from <a href="https://www.python.org/downloads/" target="_blank">python.org</a></li>
+            </ul>
+        </li>
+        <li>
+            <strong>Navigate to the project directory</strong> in your terminal or command prompt:
+            <pre>cd path/to/massive-tanks/client</pre>
+        </li>
+        <li>
+            <strong>Start the server</strong>:
+            <ul>
+                <li>For Python 3.x:
+                    <pre>python -m http.server</pre>
+                </li>
+                <li>For Python 2.x:
+                    <pre>python -m SimpleHTTPServer</pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <strong>Open your browser</strong> and navigate to:
+            <pre>http://localhost:8000</pre>
+        </li>
     </ol>
+    
+    <h2>Method 2: Opening the HTML file directly</h2>
+    
+    <p>You can also open the HTML file directly in your browser, but some features might not work correctly due to browser security restrictions.</p>
+    
+    <ol>
+        <li>Navigate to the <code>massive-tanks/client</code> directory</li>
+        <li>Double-click on <code>index.html</code> to open it in your browser</li>
+    </ol>
+    
+    <div class="warning">
+        <strong>Warning:</strong> When opening the file directly, localStorage might not work correctly in some browsers. This means your game progress might not be saved between sessions.
+    </div>
     
     <h2>Using the Application</h2>
     
-    <p>Once the application is running:</p>
-    
     <ol>
-        <li>Enter any username on the login screen (password is not validated in the prototype)</li>
-        <li>Click "Login" to enter the application</li>
-        <li>Navigate between different views using the navigation bar</li>
-        <li>In the Base view, select a building type and click on the grid to place it</li>
-        <li>In the Garage view, click "Import Tanks" to simulate importing tanks from World of Tanks</li>
-        <li>In the Missions view, click "New Mission" to create a strategic mission</li>
+        <li>
+            <strong>Login</strong>: Use any username to log in (no password required in the prototype)
+        </li>
+        <li>
+            <strong>Link WoT Account</strong>: Click "Link World of Tanks Account" to simulate connecting to the Wargaming API
+        </li>
+        <li>
+            <strong>Navigate</strong>: Use the navigation bar to switch between views (Base, Garage, Missions, etc.)
+        </li>
+        <li>
+            <strong>Build your base</strong>: Select a building type and place it on the grid
+        </li>
+        <li>
+            <strong>Import tanks</strong>: In the Garage view, click "Import Tanks" to get sample tanks
+        </li>
+        <li>
+            <strong>Create missions</strong>: In the Missions view, click "New Mission" to create a strategic mission
+        </li>
     </ol>
-    
-    <div class="note">
-        <p><strong>Note:</strong> This is a prototype version with simulated functionality. No actual connection to the Wargaming API is made.</p>
-    </div>
     
     <h2>Troubleshooting</h2>
     
     <h3>Console Errors</h3>
     
-    <p>If you encounter issues, open your browser's developer console (F12 or Ctrl+Shift+I in most browsers) to check for error messages.</p>
+    <p>If you encounter any issues, check your browser's developer console (F12 or Ctrl+Shift+I on most browsers) for error messages.</p>
     
-    <h3>Common Issues</h3>
+    <h3>LocalStorage Issues</h3>
     
-    <ul>
-        <li><strong>CORS errors:</strong> If you see Cross-Origin Resource Sharing (CORS) errors in the console, you need to use a local web server as described in Method 2.</li>
-        <li><strong>Missing resources:</strong> Ensure you have an internet connection for loading external resources like Font Awesome.</li>
-        <li><strong>JavaScript disabled:</strong> Make sure JavaScript is enabled in your browser.</li>
-    </ul>
-    
-    <h3>Resetting Data</h3>
-    
-    <p>If you want to reset all application data:</p>
-    
-    <ol>
-        <li>Open your browser's developer console (F12 or Ctrl+Shift+I)</li>
-        <li>Type <code>App.resetAllData()</code> and press Enter</li>
-        <li>Confirm the reset when prompted</li>
-    </ol>
-    
-    <h2>Additional Resources</h2>
+    <p>If your game progress isn't saving, make sure:</p>
     
     <ul>
-        <li>Check the <code>README.md</code> file in the project root for an overview of the project</li>
-        <li>See <code>docs/wargaming-api-guide.md</code> for details on the Wargaming API integration</li>
-        <li>See <code>docs/twitch-integration-guide.md</code> for details on the Twitch integration</li>
+        <li>You're running the app through a web server (Method 1)</li>
+        <li>You haven't blocked cookies or localStorage in your browser settings</li>
+        <li>You're not using private/incognito browsing mode</li>
     </ul>
     
-    <a href="index.html" class="back-link">Back to Application</a>
+    <h3>Display Issues</h3>
+    
+    <p>If the UI doesn't display correctly:</p>
+    
+    <ul>
+        <li>Make sure you're using a modern browser (Chrome, Firefox, Edge, Safari)</li>
+        <li>Check if all files are properly loaded in the Network tab of developer tools</li>
+        <li>Try clearing your browser cache</li>
+    </ul>
+    
+    <h2>Next Steps</h2>
+    
+    <p>After running the prototype, you might want to:</p>
+    
+    <ul>
+        <li>Check out the <code>README.md</code> file for more information about the project</li>
+        <li>Explore the code structure to understand how it works</li>
+        <li>Review the documentation in the <code>docs</code> folder for details on API integration</li>
+    </ul>
+    
+    <a href="index.html" class="btn">Go to Application</a>
 </body>
 </html>
