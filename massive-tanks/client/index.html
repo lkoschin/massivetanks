@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Massive Tanks: Armored Command</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen active">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>Massive Tanks</h1>
+                <h2>Armored Command</h2>
+            </div>
+            <div class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password">
+                </div>
+                <div class="form-actions">
+                    <button id="login-btn" class="btn btn-primary">Login</button>
+                    <button id="register-btn" class="btn btn-secondary">Register</button>
+                </div>
+                <div class="wot-link">
+                    <button id="link-wot-btn" class="btn btn-wot">
+                        <i class="fas fa-link"></i> Link World of Tanks Account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+        <!-- Game Header -->
+        <header class="game-header">
+            <div class="header-left">
+                <h1>Massive Tanks</h1>
+            </div>
+            <div class="header-center">
+                <div class="resource-bar">
+                    <div class="resource">
+                        <i class="fas fa-cog"></i>
+                        <span id="steel">100</span>
+                    </div>
+                    <div class="resource">
+                        <i class="fas fa-tree"></i>
+                        <span id="wood">100</span>
+                    </div>
+                    <div class="resource">
+                        <i class="fas fa-microchip"></i>
+                        <span id="electronics">50</span>
+                    </div>
+                    <div class="resource">
+                        <i class="fas fa-gas-pump"></i>
+                        <span id="gasoline">50</span>
+                    </div>
+                    <div class="resource">
+                        <i class="fas fa-star"></i>
+                        <span id="base-level">1</span>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="player-info">
+                    <span id="player-name">Commander</span>
+                    <div class="wot-status-container">
+                        <span class="wot-status-label">WoT:</span>
+                        <span id="wot-status" class="status-unlinked">Not Linked</span>
+                        <button id="sync-wot-btn" class="btn btn-small">
+                            <i class="fas fa-sync"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button id="settings-btn" class="btn btn-icon">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                    <button id="logout-btn" class="btn btn-icon">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Game Navigation -->
+        <nav class="game-nav">
+            <div class="nav-item active" data-view="baseView">
+                <i class="fas fa-home"></i>
+                <span>Base</span>
+            </div>
+            <div class="nav-item" data-view="garageView">
+                <i class="fas fa-tank"></i>
+                <span>Garage</span>
+            </div>
+            <div class="nav-item" data-view="missionsView">
+                <i class="fas fa-flag"></i>
+                <span>Missions</span>
+            </div>
+            <div class="nav-item" data-view="guildView">
+                <i class="fas fa-users"></i>
+                <span>Guild</span>
+            </div>
+            <div class="nav-item" data-view="mapView">
+                <i class="fas fa-map"></i>
+                <span>Map</span>
+            </div>
+        </nav>
+
+        <!-- Game Content -->
+        <main class="game-content">
+            <!-- Base View -->
+            <div id="base-view" class="view active">
+                <div class="view-header">
+                    <h2>Command Base</h2>
+                </div>
+                <div class="view-content">
+                    <div class="building-selector">
+                        <div class="building-item" data-building="command-center">
+                            <div class="building-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="building-name">Command Center</div>
+                        </div>
+                        <div class="building-item" data-building="garage">
+                            <div class="building-icon">
+                                <i class="fas fa-warehouse"></i>
+                            </div>
+                            <div class="building-name">Garage</div>
+                        </div>
+                        <div class="building-item" data-building="factory">
+                            <div class="building-icon">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <div class="building-name">Factory</div>
+                        </div>
+                        <div class="building-item" data-building="defense-tower">
+                            <div class="building-icon">
+                                <i class="fas fa-chess-rook"></i>
+                            </div>
+                            <div class="building-name">Defense Tower</div>
+                        </div>
+                        <div class="building-item" data-building="resource-extractor">
+                            <div class="building-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div class="building-name">Resource Extractor</div>
+                        </div>
+                    </div>
+                    <div class="base-grid">
+                        <!-- Grid cells will be generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Garage View -->
+            <div id="garage-view" class="view">
+                <div class="view-header">
+                    <h2>Tank Garage</h2>
+                    <button id="import-tanks-btn" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Import Tanks
+                    </button>
+                </div>
+                <div class="view-content">
+                    <div class="tank-list">
+                        <!-- Tank items will be generated by JavaScript -->
+                        <div class="empty-message">No tanks available. Import tanks from World of Tanks.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Missions View -->
+            <div id="missions-view" class="view">
+                <div class="view-header">
+                    <h2>Strategic Missions</h2>
+                    <button id="new-mission-btn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> New Mission
+                    </button>
+                </div>
+                <div class="view-content">
+                    <div class="mission-list">
+                        <!-- Mission items will be generated by JavaScript -->
+                        <div class="empty-message">No active missions. Create a new mission to begin.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guild View -->
+            <div id="guild-view" class="view">
+                <div class="view-header">
+                    <h2>Armored Company</h2>
+                </div>
+                <div class="view-content">
+                    <div class="guild-placeholder">
+                        <i class="fas fa-users"></i>
+                        <h3>Guild System Coming Soon</h3>
+                        <p>Form or join an Armored Company to cooperate with other players.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map View -->
+            <div id="map-view" class="view">
+                <div class="view-header">
+                    <h2>Strategic Map</h2>
+                </div>
+                <div class="view-content">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map"></i>
+                        <h3>World Map Coming Soon</h3>
+                        <p>Explore the strategic landscape and conquer territories.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <!-- WoT Link Modal -->
+    <div id="wot-link-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Link World of Tanks Account</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Linking your World of Tanks account allows you to import your tanks and use them in Massive Tanks: Armored Command.</p>
+                <div class="wot-auth-container">
+                    <button id="wot-auth-btn" class="btn btn-wot">
+                        <i class="fas fa-link"></i> Authenticate with Wargaming
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Mission Modal -->
+    <div id="new-mission-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Mission</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="mission-setup">
+                    <h4>Select Target</h4>
+                    <div class="target-selection">
+                        <div class="target-item" data-target="1">
+                            <div class="target-icon">
+                                <i class="fas fa-flag"></i>
+                            </div>
+                            <div class="target-info">
+                                <h5>Enemy Base Alpha</h5>
+                                <p>A small enemy outpost with light defenses.</p>
+                            </div>
+                        </div>
+                        <div class="target-item" data-target="2">
+                            <div class="target-icon">
+                                <i class="fas fa-flag"></i>
+                            </div>
+                            <div class="target-info">
+                                <h5>Enemy Base Bravo</h5>
+                                <p>A medium-sized base with moderate defenses.</p>
+                            </div>
+                        </div>
+                        <div class="target-item" data-target="3">
+                            <div class="target-icon">
+                                <i class="fas fa-flag"></i>
+                            </div>
+                            <div class="target-info">
+                                <h5>Enemy Base Charlie</h5>
+                                <p>A large fortress with heavy defenses.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mission-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Distance:</span>
+                            <span id="mission-distance">-- km</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Duration:</span>
+                            <span id="mission-duration">-- hours</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Required Gasoline:</span>
+                            <span id="required-gasoline">--</span>
+                        </div>
+                    </div>
+
+                    <div class="rewards-section">
+                        <h4>Rewards</h4>
+                        <div class="reward-items">
+                            <div class="reward-item">
+                                <i class="fas fa-cog"></i>
+                                <span>--</span> Steel
+                            </div>
+                            <div class="reward-item">
+                                <i class="fas fa-tree"></i>
+                                <span>--</span> Wood
+                            </div>
+                            <div class="reward-item">
+                                <i class="fas fa-microchip"></i>
+                                <span>--</span> Electronics
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>Select Tanks</h4>
+                    <div class="tank-selection-list">
+                        <!-- Tank selection items will be generated by JavaScript -->
+                        <div class="empty-message">No tanks available. Import tanks from World of Tanks.</div>
+                    </div>
+
+                    <div class="mission-actions">
+                        <button id="start-mission-btn" class="btn btn-primary">Start Mission</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Settings</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-form">
+                    <div class="setting-item">
+                        <label for="sound-enabled">Sound Effects</label>
+                        <input type="checkbox" id="sound-enabled" checked>
+                    </div>
+                    <div class="setting-item">
+                        <label for="music-enabled">Background Music</label>
+                        <input type="checkbox" id="music-enabled" checked>
+                    </div>
+                    <div class="setting-item">
+                        <label for="notifications-enabled">Notifications</label>
+                        <input type="checkbox" id="notifications-enabled" checked>
+                    </div>
+                    <div class="setting-item">
+                        <label for="twitch-integration">Twitch Integration</label>
+                        <input type="checkbox" id="twitch-integration">
+                    </div>
+                    <div class="settings-actions">
+                        <button id="save-settings-btn" class="btn btn-primary">Save Settings</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-message">Loading...</div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/wot-api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
